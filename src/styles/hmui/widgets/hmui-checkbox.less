@@ -1,0 +1,36 @@
+.hmui-check__label {
+  &:active {
+    background-color: #ECECEC;
+  }
+}
+
+.hmui-cells_checkbox {
+  .hmui-cell__hd {
+    padding-right: @hmuiCellInnerGapH;
+  }
+  .hmui-icon-checked {
+    &:before {
+      content: '\EA01';
+      color: #C9C9C9;
+      font-size: 23px;
+      display: block;
+    }
+  }
+}
+
+// method2 accessbility
+.hmui-check {
+  position: absolute;
+  left: -9999em;
+  // checkbox
+  .hmui-cells_checkbox & {
+    &:checked {
+      & + .hmui-icon-checked {
+        &:before {
+          content: '\EA06';
+          color: #09BB07;
+        }
+      }
+    }
+  }
+}

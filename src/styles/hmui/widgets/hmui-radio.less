@@ -1,0 +1,20 @@
+.hmui-cells_radio{
+  .hmui-cell__ft {
+    padding-left: @hmuiCellInnerGapH;
+  }
+}
+.hmui-check {
+  // radio
+  .hmui-cells_radio & {
+    &:checked {
+      & + .hmui-icon-checked {
+        &:before {
+          display: block;
+          content: '\EA08';
+          color: @radio-checked-icon-color;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

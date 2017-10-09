@@ -1,0 +1,33 @@
+.hmui-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #000;
+}
+
+.hmui-modal-enter {
+  animation: hmui-modal-in .2s ease;
+}
+
+.hmui-modal-leave {
+  animation: hmui-modal-out .2s ease forwards;
+}
+
+@keyframes hmui-modal-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+  }
+}
+
+@keyframes hmui-modal-out {
+  0% {
+  }
+  100% {
+    opacity: 0;
+  }
+}

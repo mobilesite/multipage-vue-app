@@ -1,0 +1,24 @@
+.hmui-loading {
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-name: rotate;
+  animation-timing-function: linear;
+  border-radius: 99em;
+  border: 3px solid #ddd;
+  border-left-color: #666;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate3d(0, 0, 1, 0deg)
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 360deg)
+  }
+}

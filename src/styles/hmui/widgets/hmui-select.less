@@ -1,0 +1,67 @@
+.hmui-cell_select {
+  padding: 0;
+  .hmui-select {
+    padding-right: 30px;
+  }
+  .hmui-cell__bd{
+    &:after{
+      content: " ";
+      .setArrow(right, 6px, #C8C8CD, 2px);
+
+      position: absolute;
+      top: 50%;
+      right: @hmuiCellGapH;
+      margin-top: -4px;
+    }
+  }
+}
+
+.hmui-select {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 100%;
+  font-size: inherit;
+  height: @hmuiCellHeight;
+  line-height: @hmuiCellHeight;
+  position: relative;
+  z-index: 1;
+  padding-left: @hmuiCellGapH;
+}
+
+.hmui-cell_select-before {
+  padding-right:@hmuiCellGapH;
+  .hmui-select{
+    width:@hmuiCellLabelWidth;
+    box-sizing: border-box;
+  }
+  .hmui-cell__hd {
+    position:relative;
+    &:after {
+      .setRightLine(@hmuiCellBorderColor);
+    }
+    &:before{
+      content: " ";
+      .setArrow(right, 6px, #C8C8CD, 2px);
+
+      position: absolute;
+      top: 50%;
+      right: @hmuiCellGapH;
+      margin-top: -4px;
+    }
+  }
+  .hmui-cell__bd {
+    padding-left:@hmuiCellGapH;
+    &:after{
+      display:none;
+    }
+  }
+}
+
+.hmui-cell_select-after {
+  padding-left:@hmuiCellGapH;
+  .hmui-select {
+    padding-left:0;
+  }
+}
