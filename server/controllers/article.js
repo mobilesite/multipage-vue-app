@@ -52,7 +52,6 @@ module.exports.del = async (ctx) => {
 
     if (id) {
         await Article.findOneAndRemove({_id: id}).exec();
-
         respond(ctx, 200, {
             code: err.success.code,
             msg: err.success.code
@@ -97,12 +96,12 @@ module.exports.savePoster = async (ctx, next) => {
 module.exports.showNew = async (ctx) => {
     const categories = await Category.find({}).exec();
 
-    ctx.render('article_edit', {
+    await ctx.render('article_edit', {
         title: '新建文章',
         categories: categories,
         article: {}
     })
-}
+};
 
 // update article page
 module.exports.showUpdate = async (ctx) => {
@@ -112,7 +111,7 @@ module.exports.showUpdate = async (ctx) => {
         const article = await Article.findById(id).exec();
         const categories = await Category.find({}).exec();
 
-        ctx.render('article_edit', {
+        await ctx.render('article_edit', {
             title: '编辑文章',
             article: article,
             categories: categories
@@ -124,7 +123,7 @@ module.exports.showUpdate = async (ctx) => {
 module.exports.showList = async (ctx) => {
     const articles = await Article.find({}).populate('categories', 'name').exec();
 
-    ctx.render('article_list', {
+    await ctx.render('article_list', {
         title: '文章列表',
         articles: articles
     });
@@ -142,7 +141,7 @@ module.exports.showDetail = async (ctx) => {
         .populate('reply.from reply.to', 'name')   //对reply.from reply.to这两个关联字段，都填充进来name
         .exec();
 
-    ctx.render('article_detail', {
+    await ctx.render('article_detail', {
         title: '文章详情页',
         article: article,
         comments: comments

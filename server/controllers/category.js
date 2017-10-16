@@ -8,7 +8,7 @@ const Category = require('../models/category');
  * ----------------- 数据库的操作 --------------
  */
 
-// admin post movie
+// save category
 module.exports.save = async (ctx) => {
     const categoryObj = ctx.req.body.category;
     const id = categoryObj._id;
@@ -31,7 +31,7 @@ module.exports.save = async (ctx) => {
 
 // show new category page
 module.exports.showNew = async (ctx) => {
-    ctx.render('category_edit', {
+    await ctx.render('category_edit', {
         title: '新建分类',
         category: {}
     });
@@ -44,7 +44,7 @@ module.exports.showEdit = async (ctx) => {
 
     if (id) {
         const category = await Category.findById(id).exec();
-        ctx.render('category_edit', {
+        await ctx.render('category_edit', {
             title: '分类编辑',
             category: category
         });
@@ -55,7 +55,7 @@ module.exports.showEdit = async (ctx) => {
 module.exports.showList = async (ctx) => {
     const categories = await Category.getAll().exec();
 
-    ctx.render('category_list', {
+    await ctx.render('category_list', {
         title: '分类列表',
         categories: categories
     })

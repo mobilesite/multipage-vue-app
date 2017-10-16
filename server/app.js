@@ -12,8 +12,9 @@ const session = require('koa-session');
 const gzip = require('koa-gzip');
 const path = require('path');
 const render = require('koa-ejs');
-const route = require('./routes/main');
-const controller = require('./routes/controller');
+const frontendRouter = require('./routes/frontend');
+const adminRouter = require('./routes/admin');
+const apiRouter = require('./routes/api');
 
 app.keys = ['secrethere'];
 
@@ -34,7 +35,10 @@ render(app, {
     debug: true
 });
 
-route(router);
+//装载子路由
+router.use(frontendRouter.routes(), frontendRouter.allowedMethods());
+router.use('/admin', adminRouter.routes(), adminRouter.allowedMethods());
+router.use('/api', apiRouter.routes(), apiRouter.allowedMethods());
 
 //日志
 app.use(logger());
@@ -45,9 +49,8 @@ app
     .use(gzip())
     .use(session(CONFIG, app))
     .use(staticServe(__dirname + '/public'))
-    .use(router.routes())
-    .use(controller.routes())
-    .use(controller.allowedMethods());
+    .use(router.routes())                      //加载路由中间件
+    .use(router.allowedMethods());
 
 app.listen(80);
 

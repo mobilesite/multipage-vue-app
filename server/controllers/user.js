@@ -16,24 +16,6 @@ const find = async (username) => {
     return user;
 };
 
-module.exports.my = async (ctx) => {
-    const username = ctx.req.body.username;
-    const users = await User.find({username}).exec();
-    let data;
-
-    if (!users) {
-        data = null;
-    } else {
-        data = users
-    }
-
-    respond(ctx, 200, {
-        code: err.passwordNotMatch.code,
-        msg: err.passwordNotMatch.msg,
-        data
-    });
-};
-
 //注册
 module.exports.register = async (ctx) => {
     //todo 完善所需的各种字段
@@ -127,27 +109,46 @@ module.exports.del = async (ctx) => {
     });
 };
 
+//查询我的信息
+module.exports.my = async (ctx) => {
+    const username = ctx.req.body.username;
+    const users = await User.find({username}).exec();
+    let data;
+
+    if (!users) {
+        data = null;
+    } else {
+        data = users
+    }
+
+    respond(ctx, 200, {
+        code: err.passwordNotMatch.code,
+        msg: err.passwordNotMatch.msg,
+        data
+    });
+};
+
 /**
  * ----------------- 页面的操作 --------------
  */
 
-// sign up
-module.exports.showRegister = (ctx) => {
-    ctx.render('register', {
+// register
+module.exports.showRegister = async (ctx) => {
+    await ctx.render('register', {
         title: '用户注册'
     });
 }
 
 // sign in
-module.exports.showSignin = (ctx) => {
-    ctx.render('signin', {
+module.exports.showSignin = async (ctx) => {
+    await ctx.render('signin', {
         title: '登录'
     });
 };
 
 // my
-module.exports.showMy = (ctx) => {
-    ctx.render('my', {
+module.exports.showMy = async (ctx) => {
+    await ctx.render('my', {
         title: '我的'
     });
 };
@@ -157,14 +158,18 @@ module.exports.showMy = (ctx) => {
 module.exports.showList = async (ctx) => {
     const users = await User.getAll().exec();
 
-    ctx.render('user_list', {
+    await ctx.render('user_list', {
         title: '用户列表',
         users: users
     });
 };
 
-// 中间件，必须是管理员
-exports.adminRequired = async (ctx, next) => {
+/**
+ * ----------------- 中间件 --------------
+ */
+
+// 必须是管理员
+module.exports.checkAdmin = async (ctx, next) => {
     const username = ctx.req.body.username;
     const user = await User.find({username}).exec();
 
@@ -173,4 +178,4 @@ exports.adminRequired = async (ctx, next) => {
     }
 
     next();
-}
+};

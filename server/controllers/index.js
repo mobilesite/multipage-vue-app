@@ -10,7 +10,7 @@ const Category = require('../models/category');
  */
 
 // show index page
-module.exports.index = async (ctx) => {
+module.exports.showIndex = async (ctx) => {
     const categories = await Category
         .find({})
         .populate({
@@ -20,14 +20,14 @@ module.exports.index = async (ctx) => {
         })
         .exec();
 
-    ctx.render('index', {
+    await ctx.render('index', {
         title: '首页',
         categories: categories
     });
 }
 
 // show search page
-module.exports.search = async (ctx) => {
+module.exports.showSearch = async (ctx) => {
     const categoryId = ctx.req.query.category.id;
     const q = ctx.req.query.q;
     const page = parseInt(ctx.req.query.p, 10) || 0;
@@ -46,7 +46,7 @@ module.exports.search = async (ctx) => {
         const articles = category.articles || [];
         const results = articles.slice(index, index + count);
 
-        ctx.render('search', {
+        await ctx.render('search', {
             title: '搜索结果列表',
             keyword: category.name,
             currentPage: (page + 1),
@@ -58,7 +58,7 @@ module.exports.search = async (ctx) => {
         const articles = await Article.find({title: new RegExp(q + '.*', 'i')}).exec();
         const results = articles.slice(index, index + count);
 
-        ctx.render('search', {
+        await ctx.render('search', {
             title: '搜索结果列表页面',
             keyword: q,
             currentPage: (page + 1),

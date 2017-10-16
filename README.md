@@ -241,6 +241,7 @@ dll打包命令会将公共库打包到/dll/目录下，其中｀npm run dll-dev
 
 配置两个地址，一个指向html，另一个指向附属的静态资源
 
+```
 server {
     listen       80;
     server_name  www.test.com;
@@ -281,7 +282,7 @@ server {
         index  index.html;
     }
 }
-
+```
 
 ```
 npm start
