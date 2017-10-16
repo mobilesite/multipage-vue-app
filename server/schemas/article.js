@@ -4,7 +4,7 @@ const mongoose = require('../database/mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
-let articleSchema = new Schema({
+const articleSchema = new Schema({
     publisher: {
         type: ObjectId,
         ref: 'User'
@@ -55,15 +55,5 @@ articleSchema.statics = {
             .exec(cb);
     }
 };
-
-const articleSchema = new Schema({
-    title: String,
-    content: String,
-    abstract: String,
-    createTime: String,
-    lastEditTime: String,
-    author: {type: ObjectId, ref: 'User'},
-    tags: [{type: ObjectId, ref: 'Tag'}]
-});
 
 module.exports = articleSchema;

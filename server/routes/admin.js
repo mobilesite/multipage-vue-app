@@ -5,11 +5,11 @@ const childRouter = new Router();
 const body = require('koa-body')();
 const checkToken = require('../token/check');
 
-const indexCtrl = require('../app/controllers/index');
-const userCtrl = require('../app/controllers/user');
-const articleCtrl = require('../app/controllers/article');
-const commentCtrl = require('../app/controllers/comment');
-const categoryCtrl = require('../app/controllers/category');
+const indexCtrl = require('../controllers/index');
+const userCtrl = require('../controllers/user');
+const articleCtrl = require('../controllers/article');
+const commentCtrl = require('../controllers/comment');
+const categoryCtrl = require('../controllers/category');
 
 // user
 childRouter.get('/admin/user/list', body, checkToken, userCtrl.checkAdmin, userCtrl.showList);
