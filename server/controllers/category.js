@@ -25,34 +25,17 @@ module.exports.save = async (ctx) => {
     ctx.redirect('/admin/category/list');
 };
 
+// get all category
+module.exports.getAll = async (ctx) => {
+    await Category.getAll().exec();
+};
+
 /**
  * ----------------- 页面的操作 --------------
  */
 
-// show new category page
-module.exports.showNew = async (ctx) => {
-    await ctx.render('category_edit', {
-        title: '新建分类',
-        category: {}
-    });
-};
-
-// show edit category page
-module.exports.showEdit = async (ctx) => {
-    const categoryObj = ctx.req.body.category;
-    const id = categoryObj._id;
-
-    if (id) {
-        const category = await Category.findById(id).exec();
-        await ctx.render('category_edit', {
-            title: '分类编辑',
-            category: category
-        });
-    }
-};
-
 // show category list page
-module.exports.showList = async (ctx) => {
+module.exports.showArticle = async (ctx) => {
     const categories = await Category.getAll().exec();
 
     await ctx.render('category_list', {

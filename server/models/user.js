@@ -1,8 +1,7 @@
 'use strict';
 
-const mongoose = require('../database/db');
-const model = mongoose.model;
+const mongoose = require('../database/mongoose');
 const userSchema = require('../schemas/user');
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

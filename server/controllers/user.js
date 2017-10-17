@@ -24,9 +24,9 @@ module.exports.register = async (ctx) => {
         password: sha1(ctx.req.body.password), //加密密码
         token: createToken(this.username)      //创建token
     });
-    const user = await find(user.username).exec();
+    const doc = await find(user.username).exec();
 
-    if (user) {
+    if (doc) {
         //用户名已存在
         respond(ctx, 200, {
             code: err.usernameExisted.code,

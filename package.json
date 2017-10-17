@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "bcrypt": "^1.0.3",
     "jquery": "^1.11.2",
     "jquery.cookie": "^1.4.1",
     "json-format": "^1.0.1",

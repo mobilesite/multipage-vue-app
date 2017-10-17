@@ -15,6 +15,9 @@ const render = require('koa-ejs');
 const frontendRouter = require('./routes/frontend');
 const adminRouter = require('./routes/admin');
 const apiRouter = require('./routes/api');
+const connect = require('./database/connect');
+
+connect();
 
 app.keys = ['secrethere'];
 

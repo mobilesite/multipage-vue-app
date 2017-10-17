@@ -5,6 +5,9 @@
 const connect = () => {
     const DB_URL = 'mongodb://localhost:27017/paianblog';
     const mongoose = require('mongoose');
+
+    mongoose.connect(DB_URL, { useMongoClient: true });
+
     const con = mongoose.connection;
 
     con.on('connected', () => {
@@ -21,8 +24,6 @@ const connect = () => {
     });
 };
 
-module.exports = {
-    connect
-}
+module.exports = connect;
 
 

@@ -21,8 +21,6 @@ childRouter.post('/admin/article', body, checkToken, userCtrl.checkAdmin, articl
 childRouter.get('/admin/article/list', body, checkToken, userCtrl.checkAdmin, articleCtrl.showList);
 
 // category
-childRouter.get('/admin/category/new', body, checkToken, userCtrl.checkAdmin, categoryCtrl.new);
-childRouter.post('/admin/category', body, checkToken, userCtrl.checkAdmin, categoryCtrl.save);
-childRouter.get('/admin/category/list', body, checkToken, userCtrl.checkAdmin, categoryCtrl.list);
+childRouter.post('/admin/category', body, checkToken, userCtrl.checkAdmin, categoryCtrl.showArticle);
 
 module.exports = childRouter;

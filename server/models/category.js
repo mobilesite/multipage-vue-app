@@ -1,8 +1,7 @@
 'use strict';
 
-const mongoose = require('../database/db');
-const model = mongoose.model;
+const mongoose = require('../database/mongoose');
 const categorySchema = require('../schemas/category');
-const Category = model('Category', categorySchema);
+const Category = mongoose.model('Category', categorySchema);
 
 module.exports = Category;
