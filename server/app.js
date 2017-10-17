@@ -32,7 +32,7 @@ const CONFIG = {
 
 render(app, {
     root: path.join(__dirname, 'views'),
-    layout: '__layout',
+    layout: 'index',
     viewExt: 'html',
     cache: false,
     debug: true
