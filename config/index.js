@@ -28,6 +28,14 @@ exportObj = {
           '^/dll/': 'dll/dev/'
         }
       }
+      // ,
+      // '/api': {
+      //   target: 'http://localhost:8545/',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

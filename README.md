@@ -252,14 +252,20 @@ server {
 
     location /wallet {
         root   /Users/dennis/work/newh5/static/html/;
-        try_files $uri /wallet.html;
+        try_files $uri $uri/ /wallet.html;
         index  wallet.html;
     }
 
     location /help {
         root   /Users/dennis/work/newh5/static/html/;
-        try_files $uri /help.html;
+        try_files $uri $uri/ /help.html;
         index  help.html;
+    }
+
+    location /testweb3 {
+        root   /Users/dennis/work/newh5/static/html/;
+        try_files $uri $uri/ /testweb3.html;
+        index  testweb3.html;
     }
 }
 

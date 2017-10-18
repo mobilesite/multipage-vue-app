@@ -2,8 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Axios from 'axios'
-import VueAxios from 'vue-axios'
+import Axios from 'axios';
+import VueAxios from 'vue-axios';
+
+// import $ from '../../base/jquery/jquery.min.js';
+// import * as aaa from '../../base/jquery.cookie.js';
+/* eslint-disable no-debug */
+// console.log($('html'));
+// console.log(jQuery('html'));
+// console.log($.cookie);
+/* eslint-enable no-debug */
 
 import Page from './Page';
 import router from './router/index';

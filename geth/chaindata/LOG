@@ -1,0 +1,32 @@
+=============== Oct 18, 2017 (CST) ===============
+16:39:15.683959 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:39:15.684568 db@open opening
+16:39:15.687283 version@stat F·[] S·0B[] Sc·[]
+16:39:15.687628 db@janitor F·2 G·0
+16:39:15.687672 db@open done T·3.080092ms
+16:44:49.800942 db@close closing
+16:44:49.801283 db@close done T·336.584µs
+=============== Oct 18, 2017 (CST) ===============
+17:04:14.602283 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:04:14.603152 version@stat F·[] S·0B[] Sc·[]
+17:04:14.603167 db@open opening
+17:04:14.603227 journal@recovery F·1
+17:04:14.605385 journal@recovery recovering @1
+17:04:14.606632 memdb@flush created L0@2 N·44 S·2KiB "\x03\vV..\xac\xe2\xbf,v26":"\xde-v..Ӣ\x1e,v22"
+17:04:14.607848 version@stat F·[1] S·2KiB[2KiB] Sc·[0.25]
+17:04:14.608599 db@janitor F·3 G·0
+17:04:14.608620 db@open done T·5.44557ms
+17:04:28.195802 db@close closing
+17:04:28.195910 db@close done T·104.471µs
+=============== Oct 18, 2017 (CST) ===============
+17:18:11.321731 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:18:11.323072 version@stat F·[1] S·2KiB[2KiB] Sc·[0.25]
+17:18:11.323111 db@open opening
+17:18:11.323239 journal@recovery F·1
+17:18:11.324411 journal@recovery recovering @3
+17:18:11.326696 memdb@flush created L0@5 N·3 S·386B "Blo..ion,v47":"eth..8\xf3\xbc,v46"
+17:18:11.328444 version@stat F·[2] S·3KiB[3KiB] Sc·[0.50]
+17:18:11.329909 db@janitor F·4 G·0
+17:18:11.329949 db@open done T·6.824255ms
+17:18:31.803127 db@close closing
+17:18:31.807746 db@close done T·4.61314ms

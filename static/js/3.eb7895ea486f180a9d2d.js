@@ -8,7 +8,7 @@
 	else
 		root["3"] = factory(root["lib"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_0__) {
-return webpackJsonp_name_([10],{
+return webpackJsonp_name_([6],{
 
 /***/ 0:
 /***/ (function(module, exports) {
@@ -20,7 +20,7 @@ module.exports = lib;
 /***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(10)
+module.exports = (__webpack_require__(0))(9);
 
 /***/ })
 

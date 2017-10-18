@@ -135,12 +135,16 @@ app.use(require('connect-history-api-fallback')(
     index: '/index.html',  //覆盖默认的首页设置，默认是/index.html
     rewrites: [
       {
-        from: /\/wallet$/,
+        from: /\/wallet$/, //这里$不能省略
         to: '/wallet.html'
       },
       {
         from: /\/help$/,
         to: '/help.html'
+      },
+      {
+        from: /\/testweb3$/,
+        to: '/testweb3.html'
       }
     ],
     verbose: false //为true时将会输出日志
