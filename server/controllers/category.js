@@ -40,6 +40,7 @@ module.exports.showArticle = async (ctx) => {
 
     await ctx.render('category_list', {
         title: '分类列表',
+        layout: false,
         categories: categories
     })
 };

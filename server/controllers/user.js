@@ -135,21 +135,25 @@ module.exports.my = async (ctx) => {
 // register
 module.exports.showRegister = async (ctx) => {
     await ctx.render('register', {
-        title: '用户注册'
+        title: '用户注册',
+        layout: false
     });
 }
 
 // sign in
 module.exports.showSignin = async (ctx) => {
+    console.log('' + ctx.render, 22222222222)
     await ctx.render('signin', {
-        title: '登录'
+        title: '登录',
+        layout: false
     });
 };
 
 // my
 module.exports.showMy = async (ctx) => {
     await ctx.render('my', {
-        title: '我的'
+        title: '我的',
+        layout: false
     });
 };
 
@@ -160,6 +164,7 @@ module.exports.showList = async (ctx) => {
 
     await ctx.render('user_list', {
         title: '用户列表',
+        layout: false,
         users: users
     });
 };

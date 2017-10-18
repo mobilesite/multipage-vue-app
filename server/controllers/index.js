@@ -11,6 +11,7 @@ const Category = require('../models/category');
 
 // show index page
 module.exports.showIndex = async (ctx) => {
+    console.log(ctx.render + '', 22222222222)
     const categories = await Category
         .find({})
         .populate({
@@ -22,6 +23,7 @@ module.exports.showIndex = async (ctx) => {
 
     await ctx.render('index', {
         title: '首页',
+        layout: false,
         categories: categories
     });
 }
@@ -48,6 +50,7 @@ module.exports.showSearch = async (ctx) => {
 
         await ctx.render('search', {
             title: '搜索结果列表',
+            layout: false,
             keyword: category.name,
             currentPage: (page + 1),
             query: 'categoryid=' + categoryId,

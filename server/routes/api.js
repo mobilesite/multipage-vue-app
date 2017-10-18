@@ -1,7 +1,9 @@
 'use strict';
 
 const Router = require('koa-router');
-const childRouter = new Router();
+const childRouter = new Router({
+    prefix: '/api'
+});
 const body = require('koa-body')();
 const checkToken = require('../token/check');
 
@@ -12,14 +14,13 @@ const commentCtrl = require('../controllers/comment');
 const categoryCtrl = require('../controllers/category');
 
 // index
-childRouter.get('/', body, indexCtrl.showIndex);
-childRouter.get('/search', body, indexCtrl.showSearch);
+
 
 // user
-childRouter.post('api/user/register', body, userCtrl.register);
-childRouter.post('api/user/logout', body, userCtrl.logout);
-childRouter.post('api/user/del', body, checkToken, userCtrl.del);
-childRouter.get('api/user/my', body, checkToken, userCtrl.my);
+childRouter.post('/user/register', body, userCtrl.register);
+childRouter.post('/user/logout', body, userCtrl.logout);
+childRouter.post('/user/del', body, checkToken, userCtrl.del);
+childRouter.get('/user/my', body, checkToken, userCtrl.my);
 
 // article
 childRouter.delete('/api/article/list', body, checkToken, userCtrl.checkAdmin, articleCtrl.del);

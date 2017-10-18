@@ -65,3 +65,13 @@ app.use(async (ctx, next) => {
 
 文档：[https://github.com/remy/nodemon](https://github.com/remy/nodemon)
 
+
+## 启动
+
+```
+cd d:\mongodb\bin
+.\mongod.exe --dbpath="d:\mongodb\data\db"
+cd server
+nodemon app.js
+```
+

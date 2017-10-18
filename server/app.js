@@ -40,8 +40,8 @@ render(app, {
 
 //装载子路由
 router.use(frontendRouter.routes(), frontendRouter.allowedMethods());
-router.use('/admin', adminRouter.routes(), adminRouter.allowedMethods());
-router.use('/api', apiRouter.routes(), apiRouter.allowedMethods());
+router.use(adminRouter.routes(), adminRouter.allowedMethods());
+router.use(apiRouter.routes(), apiRouter.allowedMethods());
 
 //日志
 app.use(logger());

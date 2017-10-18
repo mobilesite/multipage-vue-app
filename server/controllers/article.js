@@ -125,6 +125,7 @@ module.exports.showList = async (ctx) => {
 
     await ctx.render('article_list', {
         title: '文章列表',
+        layout: false,
         articles: articles
     });
 };
