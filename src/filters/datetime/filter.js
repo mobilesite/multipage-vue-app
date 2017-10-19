@@ -28,9 +28,10 @@ export default function (timestamp, formatStr) {
   let minute;
   let second;
 
-  if (timestamp === undefined) {
-    timestamp = new Date();
+  if (timestamp == undefined) {
+    throw 'formatDate: parameter timestamp error';
   } else if (typeof timestamp === 'string') {
+    timestamp += '000';
     timestamp = parseInt(timestamp, 10);
     if (isNaN(timestamp)) {
       throw 'formatDate: parameter timestamp error';
@@ -38,7 +39,7 @@ export default function (timestamp, formatStr) {
       timestamp = new Date(timestamp);
     }
   } else if (typeof timestamp === 'number' && !isNaN(timestamp)) {
-    timestamp = new Date(timestamp);
+    timestamp = new Date(timestamp * 1e3);
   } else {
     throw 'formatDate: timestamp type error';
   }

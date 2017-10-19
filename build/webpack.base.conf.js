@@ -55,15 +55,15 @@ console.log('>>>>>>>>>>\n entries:', entries);
     };
 
     Object.keys(type.entries).map(key => {
-      var fileName = type.entries[key].replace(/\//g, "\/\/").replace(/\\/g, "\\\\");// 对路径进行转义
+      var fileName = type.entries[key].replace(/\//g, "\/").replace(/\\/g, "\\\\");// 对路径进行转义
       var camelCaseKey = key.replace(/-([a-z])?/g, function(all, letter){
         return letter.toUpperCase();
       });
       if(type.name !== 'util') {
-        temp.importContent.push(`import ${camelCaseKey} from '..//..${fileName}';`);
+        temp.importContent.push(`import ${camelCaseKey} from '../../${fileName}';`);
         temp.registerContent.push(`Vue.${type.name}('${camelCaseKey}', ${camelCaseKey});`);
       } else {
-        temp.importContent.push(`import * as ${camelCaseKey} from '..//..${fileName}';`);
+        temp.importContent.push(`import * as ${camelCaseKey} from '../../${fileName}';`);
       }
       temp.exportContent.push(`${camelCaseKey},`);
     });

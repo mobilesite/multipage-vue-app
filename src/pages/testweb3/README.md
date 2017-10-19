@@ -10,10 +10,11 @@ rpccorsdomain是解决类似下面这样的跨域问题：
 或者：
 
 ```
-geth removedb    #要先删除原有的数据，要不然下一句会执行失败
-geth --datadir "~/work/testweb3" --dev
-geth init ~/work/testweb3/genesis.json
-geth --ws  --wsaddr="localhost" --wsport="8545" --wsorigins "*" --wsapi="eth,net,web3,db" --dev
+#geth removedb    #要先删除原有的数据，要不然下一句会执行失败
+#geth --datadir "~/work/testweb3" --dev
+#geth init ~/work/testweb3/genesis.json
+#geth --ws  --wsaddr="localhost" --wsport="8545" --wsorigins "*" --wsapi="eth,net,web3,db" --dev
+geth --datadir 'testchain' --networkid 23 console --ws --wsport 8545 --wsaddr 0.0.0.0 --wsorigins '*'
 ```
 
 --ws                   开启 WS-RPC 服务

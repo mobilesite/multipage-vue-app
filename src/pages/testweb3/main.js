@@ -13,10 +13,12 @@ import VueAxios from 'vue-axios';
 // console.log($.cookie);
 /* eslint-enable no-debug */
 
+import VueExtension from '../../plugins/vue-extension'
 import Page from './Page';
 import router from './router/index';
 
 Vue.config.productionTip = false;
+Vue.use(VueExtension);
 Vue.use(Vuex);
 Vue.use(VueAxios, Axios);
 

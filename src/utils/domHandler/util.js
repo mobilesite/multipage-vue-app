@@ -5,7 +5,7 @@
  * @since  17/10/17
  */
 
-import eventListenerHandler from './eventListenerHandler';
+import eventListenerHandler from '../eventListenerHandler/util';
 
 let ret = {};
 
