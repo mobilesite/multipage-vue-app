@@ -68,9 +68,16 @@ app.use(async (ctx, next) => {
 
 ## 启动
 
+（1）启动数据库服务：
+
 ```
 cd d:\mongodb\bin
 .\mongod.exe --dbpath="d:\mongodb\data\db"
+```
+
+（2）启动服务器：
+
+```
 cd server
 nodemon app.js
 ```
